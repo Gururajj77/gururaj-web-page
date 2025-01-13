@@ -49,20 +49,33 @@ export default function Sidebar() {
       </aside>
 
       {/* Mobile Navigation */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-background border-t border-border p-4 z-50">
-        <nav className="flex justify-around items-center">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-background border-t border-border px-2 py-3 z-50 overflow-x-auto">
+        <nav className="flex items-center min-w-max mx-auto px-4">
+          {" "}
+          {/* Added min-w-max and removed justify-around */}
           {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-sm transition-colors ${
-                pathname === link.href
-                  ? "text-foreground font-bold"
-                  : "text-foreground/60"
-              }`}
-            >
-              {link.label}
-            </Link>
+            <div key={link.href} className="relative px-3">
+              {" "}
+              {/* Added padding between items */}
+              <Link
+                href={link.href}
+                className={`block px-3 py-2 rounded-md transition-colors relative z-10 whitespace-nowrap ${
+                  pathname === link.href
+                    ? "text-background font-bold"
+                    : "text-foreground/60"
+                }`}
+              >
+                {link.label}
+              </Link>
+              {pathname === link.href && (
+                <motion.div
+                  className="absolute inset-0 rounded-md z-0"
+                  style={{ backgroundColor: "hsl(var(--border))" }}
+                  layoutId="mobile-nav-indicator"
+                  transition={{ type: "spring", duration: 0.5, bounce: 0.2 }}
+                />
+              )}
+            </div>
           ))}
         </nav>
       </div>
