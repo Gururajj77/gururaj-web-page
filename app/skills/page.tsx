@@ -4,25 +4,28 @@ export default function Skills() {
       <h1 className="text-4xl font-bold mb-8">Skills</h1>
       <div className="grid grid-cols-2 gap-8">
         <div>
-          <h2 className="text-2xl font-bold mb-4">Frontend</h2>
-          <ul className="list-disc list-inside">
-            <li>React & Next.js</li>
-            <li>TypeScript</li>
-            <li>TailwindCSS</li>
-            <li>Redux</li>
+          <h2 className="text-2xl font-bold mb-4">Development</h2>
+          <ul className="list-disc list-inside space-y-2">
+            <li>React.js & Angular</li>
+            <li>TypeScript & JavaScript</li>
+            <li>HTML5 & Tailwind CSS</li>
+            <li>SCSS & CSS3</li>
+            <li>GraphQL</li>
+            <li>Nx & Lerna (Monorepo Tools)</li>
           </ul>
         </div>
         <div>
-          <h2 className="text-2xl font-bold mb-4">Backend</h2>
-          <ul className="list-disc list-inside">
-            <li>Node.js</li>
-            <li>Express</li>
-            <li>PostgreSQL</li>
-            <li>GraphQL</li>
+          <h2 className="text-2xl font-bold mb-4">Testing & Tools</h2>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Jest</li>
+            <li>React Testing Library</li>
+            <li>Playwright (Visual Regression)</li>
+            <li>Accessibility Testing</li>
+            <li>Storybook</li>
+            <li>Git Version Control</li>
           </ul>
         </div>
       </div>
     </div>
-  )
+  );
 }
-

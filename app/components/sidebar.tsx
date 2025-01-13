@@ -24,25 +24,48 @@ export default function Sidebar() {
     { href: "/experience", label: "Experience" },
     { href: "/contact", label: "Contact" },
   ];
+
   return (
-    <aside className="w-64 p-6 hidden md:block fixed h-screen">
-      <nav className="space-y-4">
-        {links.map((link) => (
-          <div key={link.href} className="relative">
+    <>
+      {/* Desktop Sidebar */}
+      <aside className="w-64 p-6 hidden lg:block sticky top-0 bg-background min-h-screen border-r border-border">
+        <nav className="space-y-4">
+          {links.map((link) => (
+            <div key={link.href} className="relative">
+              <Link
+                href={link.href}
+                className={`block transition-colors ${
+                  pathname === link.href
+                    ? "text-foreground font-bold"
+                    : "text-foreground/60 hover:text-foreground"
+                }`}
+              >
+                {link.label}
+              </Link>
+              {pathname === link.href && <AnimatedDash />}
+            </div>
+          ))}
+        </nav>
+      </aside>
+
+      {/* Mobile Navigation */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-background border-t border-border p-4 z-50">
+        <nav className="flex justify-around items-center">
+          {links.map((link) => (
             <Link
+              key={link.href}
               href={link.href}
-              className={`block transition-colors ${
+              className={`text-sm transition-colors ${
                 pathname === link.href
                   ? "text-foreground font-bold"
-                  : "text-foreground/60 hover:text-foreground"
+                  : "text-foreground/60"
               }`}
             >
               {link.label}
             </Link>
-            {pathname === link.href && <AnimatedDash />}
-          </div>
-        ))}
-      </nav>
-    </aside>
+          ))}
+        </nav>
+      </div>
+    </>
   );
 }
