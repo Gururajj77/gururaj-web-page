@@ -5,13 +5,11 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-// 1. IMPORT the new typed component
-import FloatingShards from "@/components/FloatingShards";
+// The SynapticGrid component is IMPORTED from its own file.
+import SynapticGrid from "@/components/SynapticGrid";
 
-// The old AnimatedDotGrid component can now be removed from this file.
-
+// The Home component is defined.
 export default function Home() {
-  // Animation variants for text elements with types preserved
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (delay: number = 0) => ({
@@ -22,26 +20,20 @@ export default function Home() {
   };
 
   return (
-    // Main container now uses a responsive grid layout
     <div className="max-w-6xl mx-auto px-4 lg:px-8 py-16 lg:py-24">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
         
-        {/* Visual Element */}
         <motion.div 
           className="flex justify-center items-center order-first lg:order-last mb-8 lg:mb-0"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
         >
-          <div className="relative p-8 border border-border/20 rounded-xl bg-background/30">
-             
-             {/* 2. REPLACE the old component with the new one */}
-             <FloatingShards />
-
+          <div className="relative p-4 w-[320px] h-[320px] md:w-[400px] md:h-[400px] border border-border/20 rounded-xl bg-background/30">
+             <SynapticGrid />
           </div>
         </motion.div>
 
-        {/* Left Column: Text Content */}
         <div className="flex flex-col justify-center">
           <motion.h1 
             className="text-4xl md:text-5xl font-bold mb-4"
