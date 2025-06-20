@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 // The SynapticGrid component is IMPORTED from its own file.
-import SynapticGrid from "@/components/SynapticGrid";
+import Schematic from "@/components/Schematic";
 
 // The Home component is defined.
 export default function Home() {
@@ -30,7 +30,7 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
         >
           <div className="relative p-4 w-[320px] h-[320px] md:w-[400px] md:h-[400px] border border-border/20 rounded-xl bg-background/30">
-             <SynapticGrid />
+             <Schematic />
           </div>
         </motion.div>
 
