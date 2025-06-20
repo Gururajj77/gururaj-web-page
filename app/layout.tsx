@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "./components/navigation";
 import Sidebar from "./components/sidebar";
 import { ThemeProvider } from "./components/theme-provider";
+import SubtleBackground from "@/components/SubtleBackground";
 
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={jetbrainsMono.className}>
+          <SubtleBackground />
         <ThemeProvider>
           <Navigation />
           <div className="flex relative">
